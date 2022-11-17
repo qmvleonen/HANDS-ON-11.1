@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+ 
+  - name: Install and Build Dockerfile
+    command: docker build -t apache2/mariadb .
+    when: ansible_distribution == "Ubuntu"
+
